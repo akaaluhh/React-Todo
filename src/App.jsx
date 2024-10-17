@@ -89,7 +89,7 @@ function App()
           <label htmlFor='name'></label>
           <textarea className='formInput' id='name' name='name' ref={formData} onChange={onChange}></textarea>
           {" "}
-          <span style={{ paddingLeft: "20px" }}> <button type='submit'>Add Todo</button></span>
+          <span style={{ paddingLeft: "20px", position: "relative", top: "-20px" }}> <button type='submit'>Add Todo</button></span>
         </form>
       </React.Fragment >)
   }
