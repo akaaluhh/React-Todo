@@ -15,17 +15,19 @@ function TodoItem({ todoItem, updateTodo, removeTodo })
     removeTodo(todoItem);
   }
 
-  return <div>
-    <h3>
-      Task : {todoItem.value}
-    </h3>
-    <h3>
-      Completed : {todoItem.completed ? "yes" : "no"}
-      <label>
-        <input type='checkbox' checked={todoItem.completed} onChange={onCheck} />
-      </label>
-    </h3>
-    <button onClick={onRemove}>Remove</button>
+  return <div className='todo-parent'>
+    <div className='todo-item'>
+      <span className='todo-item1'>
+        Task : {todoItem.value}
+      </span>
+      <span className='todo-item2'>
+        <label>
+          <input type='checkbox' checked={todoItem.completed} onChange={onCheck} />
+        </label>
+      </span>
+    </div>
+    <br />
+    <button className="remove-button" onClick={onRemove}>Remove</button>
   </div>
 }
 
@@ -95,16 +97,26 @@ function App()
   }
 
   return (
-    <>
-      <h1 className='header'>TODO List</h1>
+    <React.Fragment>
+      < h1 className='header' > TODO List</h1 >
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
       </div>
-      {renderForm()}
-      {renderTodos()}
-    </>
+      <div>
+        {renderForm()}
+      </div>
+
+      <div className='topbar-container'>
+        <span className='topbar-item1'>Tasks </span>
+        <span className='topbar-item2'>Status</span>
+      </div>
+
+      <div className='todo-container'>
+        {renderTodos()}
+      </div>
+    </React.Fragment >
   )
 }
 
