@@ -2,6 +2,7 @@ import React, { useState, useRef, Fragment } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import './index.css'
 
 function TodoItem({ todoItem, updateTodo, removeTodo })
 {
@@ -15,19 +16,16 @@ function TodoItem({ todoItem, updateTodo, removeTodo })
     removeTodo(todoItem);
   }
 
-  return <div className='todo-parent'>
-    <div className='todo-item'>
-      <span className='todo-item1'>
-        Task : {todoItem.value}
-      </span>
-      <span className='todo-item2'>
-        <label>
-          <input type='checkbox' checked={todoItem.completed} onChange={onCheck} />
-        </label>
-      </span>
+  return <div class='bg-slate-900 w-[850px] flex justify-end'>
+    <div class='pt-2 flex-grow'>
+      Task : {todoItem.value}
     </div>
-    <br />
-    <button className="remove-button" onClick={onRemove}>Remove</button>
+    <div class='px-2 my-2 border'>
+      <label>
+        <input type='checkbox' checked={todoItem.completed} onChange={onCheck} />
+      </label>
+    </div>
+    <button class='' onClick={onRemove}>Remove</button>
   </div>
 }
 
@@ -98,8 +96,13 @@ function App()
 
   return (
     <React.Fragment>
-      < h1 className='header' > TODO List</h1 >
-      <div className="card">
+      <div class='container mx-auto bg-blue-400'>
+        < h1 class='font-semibold' > TODO List</h1 >
+      </div>
+      <div class="text-lg font-bold italic">
+        A division
+      </div>
+      <div className='p-4'>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
@@ -108,12 +111,12 @@ function App()
         {renderForm()}
       </div>
 
-      <div className='topbar-container'>
-        <span className='topbar-item1'>Tasks </span>
+      <div class='border-2 border-gray-500 border-opacity-100 p-2 flex'>
+        <span class="border flex-1">Tasks </span>
         <span className='topbar-item2'>Status</span>
       </div>
 
-      <div className='todo-container'>
+      <div class='w-[775px] my-[25px] pl-[10px] bg-slate-800'>
         {renderTodos()}
       </div>
     </React.Fragment >
